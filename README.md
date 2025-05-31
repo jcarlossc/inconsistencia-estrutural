@@ -17,7 +17,7 @@ Estudo sobre inconsistência estrutural de dados
   * ```df.drop_duplicates(keep='first')```. Opcional, padrão 'first'. Especifica como lidar com duplicatas: 'first' significa definir a primeira ocorrência como False, as demais como True. 'last' significa definir a última ocorrência como False, as demais como True. False significa definir todas as ocorrências como True.
   * ```df.drop_duplicates(inplace=False)```. Opcional, padrão Falso. Se Verdadeiro: a remoção é feita no DataFrame atual. Se Falso: retorna uma cópia onde a remoção foi feita.
   * ```df.drop_duplicates(ignore_index=False)```. Opcional, padrão Falso. Especifica se deve rotular 0, 1, 2 etc., ou não.
-* ```df.drop_duplicates().sum()``` - Retorna a soma das linhas nãi duplicadas.
+* ```df.drop_duplicates().sum()``` - Retorna a soma das linhas não duplicadas.
 ## ✅ Colunas sem nome / nomes genéricos (ex: Unnamed: 0)
 * ✅ Tipos de dados incorretos (ex: datas como texto, números como string)
 * ✅ Index desalinhado ou perdido
