@@ -1,4 +1,4 @@
-# Inconsistencia Estrutural
+# Inconsistências Estruturais
 Estudo sobre inconsistência estrutural de dados
 
 ## ✅ Colunas duplicadas
@@ -49,3 +49,10 @@ Estudo sobre inconsistência estrutural de dados
 * ```df.index.is_unique```: Verifica se tem índice duplicado. ```df = df.reset_index(drop=True)```: Se não for único, você pode resetar. ```df.index = range(len(df))```: se quiser recriar.
 * ```df = df.sort_index()```. Reordenar índice.
 ## ✅ Arquivos quebrados ou mal formatados (ex: CSV mal separado)
+* ```df = pd.read_csv('arquivo.csv', sep=';')``` ou ```df = pd.read_csv('arquivo.csv', sep='\t')```. O Pandas usa , como padrão, mas muitos CSVs europeus usam ; ou \t.
+* ```df = pd.read_csv('arquivo.csv', error_bad_lines=False, warn_bad_lines=True)```. Ignorar erros de linhas quebradas.  Atenção: Essas opções (error_bad_lines, warn_bad_lines) foram removidas nas versões novas do Pandas. Se estiver usando uma versão recente, pode ter que limpar o arquivo antes ou usar: ```with open('arquivo.csv', errors='ignore') as f: df = pd.read_csv(f, sep=';')```.
+* ```df = pd.read_csv('arquivo.csv', quotechar='"')```. Se os dados têm texto com vírgulas dentro.
+* ```df = pd.read_csv('arquivo.csv', usecols=[0, 1, 2])```.  Ler só algumas colunas para testar. Às vezes o arquivo quebra porque tem colunas demais.
+* ```with open('arquivo.csv', 'r', encoding='utf-8') as f: linhas = f.readlines() for linha in linhas: print(linha)```. Ler manualmente (linha por linha) Se estiver muito quebrado.
+* ```df = pd.read_csv('arquivo.csv', engine='python')```. Usar engine diferente. O Pandas usa por padrão o engine c.
+
