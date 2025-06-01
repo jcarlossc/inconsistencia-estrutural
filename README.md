@@ -28,6 +28,10 @@ Estudo sobre inconsistência estrutural de dados
 * ```df = df.rename(columns={2: 'coluna'})```. Renomea com índice.
 * ```df.columns = ['coluna1', 'coluna2', 'coluna3']```. Renomea através de uma lista de novas colunas.
 ## ✅ Tipos de dados incorretos (ex: datas como texto, números como string)
-
+* ```df['hora'] = pd.to_datetime(df['hora'], format='%H:%M:%S', errors='coerce')```. Converter hora no formato string para datetime.
+* ```df['data'] = pd.to_datetime(df['data'], errors='coerce')```. Converter data no formato string para datetime.
+* ```df['data_hora'] = pd.to_datetime(df['data_hora'], errors='coerce')```. Converter datae hora simultâneamente para separá-los.
+  * ```df['hora'] = df['data_hora'].dt.time```. Extrai hora de data_hora.
+  * ```df['data'] = df['data_hora'].dt.date```. Extrai data de data_hora.
 * ✅ Index desalinhado ou perdido
 * ✅ Arquivos quebrados ou mal formatados (ex: CSV mal separado)
