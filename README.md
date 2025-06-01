@@ -19,6 +19,15 @@ Estudo sobre inconsistência estrutural de dados
   * ```df.drop_duplicates(ignore_index=False)```. Opcional, padrão Falso. Especifica se deve rotular 0, 1, 2 etc., ou não.
 * ```df.drop_duplicates().sum()``` - Retorna a soma das linhas não duplicadas.
 ## ✅ Colunas sem nome / nomes genéricos (ex: Unnamed: 0)
-* ✅ Tipos de dados incorretos (ex: datas como texto, números como string)
+* ```import io```, ```df = pd.read_csv(io.StringIO(csv_data))```. O valor ```Unnamed: 0``` será adicionado à coluna vazia. Após isto, este valor poderá ser trocado por um nome mais adequado.
+* ```df.drop(columns={'coluna'})```. Apaga coluna.
+* ```df = df.rename(columns={'coluna' : 'nova_coluna'})```. Renomea coluna.
+* ```df = df.rename(columns={'coluna': 'nova_coluna', 'coluna': 'nova_coluna'})```. Renomea várias colunas.
+* ```df.set_axis(['coluna1', 'coluna2', 'coluna3'], axis=1, inplace=True)```. Renomea com método set_axis.
+* ```df.columns = [col.replace('_', ' ').title() for col in df.columns]```. Renomea com list comprehension.
+* ```df = df.rename(columns={2: 'coluna'})```. Renomea com índice.
+* ```df.columns = ['coluna1', 'coluna2', 'coluna3']```. Renomea através de uma lista de novas colunas.
+## ✅ Tipos de dados incorretos (ex: datas como texto, números como string)
+
 * ✅ Index desalinhado ou perdido
 * ✅ Arquivos quebrados ou mal formatados (ex: CSV mal separado)
