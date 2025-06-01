@@ -39,6 +39,7 @@ Estudo sobre inconsistência estrutural de dados
 * ```df['data_dia'] = pd.to_datetime(df['data'], errors='coerce').dt.day```. Tudo em um: converter para datetime e imprime os dias.
 * ```df['data_mes'] = pd.to_datetime(df['data'], errors='coerce').dt.month```. Tudo em um: converter para datetime e imprime os meses.
 * ```df['data_ano'] = pd.to_datetime(df['data'], errors='coerce').dt.year```. Tudo em um: converter para datetime e imprime o ano.
-* ```df['idade_'] = pd.to_numeric(df['idade'], errors='coerce'```. Converte string para numérico.
-* ✅ Index desalinhado ou perdido
+* ```df['idade_'] = pd.to_numeric(df['idade'], errors='coerce')```. Converte string para numérico.
+* ```df['preco'] = df['preco'].str.replace('R\$', '', regex=True).str.replace(',', '.').str.strip()```. Corrigir preços com símbolo e vírgula.
+## ✅ Index desalinhado ou perdido
 * ✅ Arquivos quebrados ou mal formatados (ex: CSV mal separado)
