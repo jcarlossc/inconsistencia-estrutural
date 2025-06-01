@@ -42,4 +42,10 @@ Estudo sobre inconsistência estrutural de dados
 * ```df['idade_'] = pd.to_numeric(df['idade'], errors='coerce')```. Converte string para numérico.
 * ```df['preco'] = df['preco'].str.replace('R\$', '', regex=True).str.replace(',', '.').str.strip()```. Corrigir preços com símbolo e vírgula.
 ## ✅ Index desalinhado ou perdido
-* ✅ Arquivos quebrados ou mal formatados (ex: CSV mal separado)
+* ```df = df.reset_index(drop=True)```. Se seu índice ficou bagunçado ou você quer voltar à numeração simples (0, 1, 2, ...). O ```drop=True``` - descarta o índice antigo.
+* ```df = pd.read_csv('arquivo.csv', index_col=0)```. Corrige índice vindo como coluna (Unnamed: 0).
+* ```if 'Unnamed: 0' in df.columns: df = df.set_index('Unnamed: 0')```. Faz a mesma coisa do anterior. Csv já carregado.
+* ```df = pd.concat([df1, df2], ignore_index=True)```. Reindexar corretamente após merge/concat. ```ignore_index=True```: gera novo índice contínuo (0, 1, 2...).
+* ```df.index.is_unique```: Verifica se tem índice duplicado. ```df = df.reset_index(drop=True)```: Se não for único, você pode resetar. ```df.index = range(len(df))```: se quiser recriar.
+* ```df = df.sort_index()```. Reordenar índice.
+## ✅ Arquivos quebrados ou mal formatados (ex: CSV mal separado)
