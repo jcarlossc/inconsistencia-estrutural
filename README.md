@@ -30,8 +30,15 @@ Estudo sobre inconsistência estrutural de dados
 ## ✅ Tipos de dados incorretos (ex: datas como texto, números como string)
 * ```df['hora'] = pd.to_datetime(df['hora'], format='%H:%M:%S', errors='coerce')```. Converter hora no formato string para datetime.
 * ```df['data'] = pd.to_datetime(df['data'], errors='coerce')```. Converter data no formato string para datetime.
-* ```df['data_hora'] = pd.to_datetime(df['data_hora'], errors='coerce')```. Converter datae hora simultâneamente para separá-los.
+* ```df['data_hora'] = pd.to_datetime(df['data_hora'], errors='coerce')```. Converter data e hora simultâneamente.
   * ```df['hora'] = df['data_hora'].dt.time```. Extrai hora de data_hora.
   * ```df['data'] = df['data_hora'].dt.date```. Extrai data de data_hora.
+* ```df['hora_hora'] = pd.to_datetime(df['data_hora'], errors='coerce').dt.hour```. Tudo em um: converter para datetime e imprime as horas.
+* ```df['hora_minutos'] = pd.to_datetime(df['data_hora'], errors='coerce').dt.minute```. Tudo em um: converter para datetime e imprime os minutos.
+* ```df['hora_segundos'] = pd.to_datetime(df['data_hora'], errors='coerce').dt.second```. Tudo em um: converter para datetime e imprime os segundos.
+* ```df['data_dia'] = pd.to_datetime(df['data'], errors='coerce').dt.day```. Tudo em um: converter para datetime e imprime os dias.
+* ```df['data_mes'] = pd.to_datetime(df['data'], errors='coerce').dt.month```. Tudo em um: converter para datetime e imprime os meses.
+* ```df['data_ano'] = pd.to_datetime(df['data'], errors='coerce').dt.year```. Tudo em um: converter para datetime e imprime o ano.
+* ```df['idade_'] = pd.to_numeric(df['idade'], errors='coerce'```. Converte string para numérico.
 * ✅ Index desalinhado ou perdido
 * ✅ Arquivos quebrados ou mal formatados (ex: CSV mal separado)
