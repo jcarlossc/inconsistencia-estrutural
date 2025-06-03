@@ -1,6 +1,4 @@
 # Inconsistências Estruturais
-Estudo sobre inconsistência estrutural de dados
-
 ## ✅ Colunas duplicadas
 * ```df.T.duplicated()``` - Retorna uma série com valores True e False das colunas duplicadas e não duplicadas respectivamemte.
 * ```df.T.duplicated().sun()``` - Conta colunas duplicados.
