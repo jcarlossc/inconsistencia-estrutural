@@ -1,7 +1,7 @@
 # Inconsistências Estruturais
 ## ✅ Colunas duplicadas
 * ```df.T.duplicated()``` - Retorna uma série com valores True e False das colunas duplicadas e não duplicadas respectivamemte.
-* ```df.T.duplicated().sun()``` - Conta colunas duplicados.
+* ```df.T.duplicated().sum()``` - Conta colunas duplicados.
 * ```df.T.drop_duplicates()``` - Apaga colunas duplicadas.
 * ```df.drop(columns={'coluna'})```. Apaga coluna.
 ## ✅ Linhas duplicadas
