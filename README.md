@@ -9,7 +9,7 @@
   * Parâmetros:
   * ```df.duplicated(subset=[coluna])``` ou ```df.duplicated(subset=[[coluna, coluna]])```. Opcional. Uma string, ou uma lista, dos nomes das colunas a serem incluídas ao procurar por duplicatas.
   * ```df.duplicated(keep='first')```. Opcional, padrão 'first'. Especifica como lidar com duplicatas: 'first' significa definir a primeira ocorrência como False, as demais como True. 'last' significa definir a última ocorrência como False, as demais como True. False significa definir todas as ocorrências como True.
-* ```df.duplicated().sun()``` - Conta linhas duplicados.
+* ```df.duplicated().sum()``` - Conta linhas duplicados.
 * ```df.drop_duplicates()``` - Apaga linhas duplicadas.
   * Parâmetros:
   * ```df.drop_duplicates(subset=[coluna])``` ou ```df.duplicated(subset=[[coluna, coluna]])```. Opcional. Uma string, ou uma lista, dos nomes das colunas a serem incluídas ao procurar por duplicatas.
